@@ -1,9 +1,6 @@
 package Problem3;
-//import Problem3.Account;
+import Problem3.Account;
 import java.util.*;
-//package account;
-//import account.Account;
-//import java.util.*;
 
 /*
  * @author Red Team
@@ -34,14 +31,14 @@ public class UserAccounts {
         int userInputId = input.nextInt();
         // When the user enters a correct id, the system displays a menu
         while (userInputId < 0 || userInputId > userAccountsArray.length-1) {
-            System.out.print("That was not a valid ID.  Please enter an ID");
+            System.out.print("That was not a valid ID.  Please enter an ID: ");
             userInputId = input.nextInt();            
         }
         // Create scanner for menu options
         Scanner menuChoice = new Scanner(System.in);
         int choice;
         do {
-            System.out.println("Main menu");
+            System.out.println("Main Menu");
             System.out.println("1: Check Balance");
             System.out.println("2: Withdraw");
             System.out.println("3: Deposit");
@@ -51,17 +48,20 @@ public class UserAccounts {
         
         switch (choice) {
         // use getBal to display balance
-        case 1: System.out.printf("The balance is $%.2f.\n", userAccountsArray[userInputId].getBal()); break;
+        case 1: System.out.printf("The balance is $%.2f.\n", userAccountsArray[userInputId].getBal()); 
+                break;
         // use withdraw to update with withdrawal amount
         case 2: Scanner amtToWithdraw = new Scanner(System.in);
                 System.out.print("Enter an amount to withdraw: ");
                 double withdrawnAmount = amtToWithdraw.nextDouble();
-                userAccountsArray[userInputId].withdraw(withdrawnAmount);break;
+                userAccountsArray[userInputId].withdraw(withdrawnAmount);
+                break;
         // use deposit to update with deposit amount
         case 3: Scanner amtToDeposit = new Scanner(System.in);
                 System.out.print("Enter an amount to deposit: ");
                 double depositedAmount = amtToDeposit.nextDouble();
-                userAccountsArray[userInputId].deposit(depositedAmount);break;
+                userAccountsArray[userInputId].deposit(depositedAmount);
+                break;
         // exit menu and return to request account id
         case 4: startOver = true;
         }
